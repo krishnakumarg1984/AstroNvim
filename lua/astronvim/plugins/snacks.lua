@@ -125,7 +125,7 @@ return {
         -- Snacks.notifier mappings
         maps.n["<Leader>uD"] = { function() require("snacks.notifier").hide() end, desc = "Dismiss notifications" }
 
-        -- Snacks.picker mappings
+        -- Snacks.picker and Snacks.gitbrowse mappings
         maps.n["<Leader>f"] = vim.tbl_get(opts, "_map_sections", "f")
         if vim.fn.executable "git" == 1 then
           maps.n["<Leader>g"] = vim.tbl_get(opts, "_map_sections", "g")
@@ -140,6 +140,8 @@ return {
           }
           maps.n["<Leader>gt"] = { function() require("snacks").picker.git_status() end, desc = "Git status" }
           maps.n["<Leader>gT"] = { function() require("snacks").picker.git_stash() end, desc = "Git stash" }
+          maps.n["<Leader>go"] = { function() require("snacks").gitbrowse() end, desc = "Git browse (open)" }
+          maps.x["<Leader>go"] = { function() require("snacks").gitbrowse() end, desc = "Git browse (open)" }
         end
         maps.n["<Leader>f<CR>"] = { function() require("snacks").picker.resume() end, desc = "Resume previous search" }
         maps.n["<Leader>f'"] = { function() require("snacks").picker.marks() end, desc = "Find marks" }
